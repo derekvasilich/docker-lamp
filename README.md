@@ -1,15 +1,13 @@
-fauria/lamp
-==========
+derekvasilich/lamp
+==================
 
-![docker_logo](https://raw.githubusercontent.com/fauria/docker-lamp/master/docker_139x115.png)![docker_fauria_logo](https://raw.githubusercontent.com/fauria/docker-lamp/master/docker_fauria_161x115.png)
+![docker_logo](https://raw.githubusercontent.com/derekvasilich/docker-lamp/master/docker_139x115.png)
 
-[![Docker Pulls](https://img.shields.io/docker/pulls/fauria/lamp.svg?style=plastic)](https://hub.docker.com/r/fauria/lamp/)
-[![Docker Build Status](https://img.shields.io/docker/build/fauria/lamp.svg?style=plastic)](https://hub.docker.com/r/fauria/lamp/builds/)
-[![](https://images.microbadger.com/badges/image/fauria/lamp.svg)](https://microbadger.com/images/fauria/lamp "fauria/lamp")
+[![Docker Pulls](https://img.shields.io/docker/pulls/derekvasilich/lamp.svg?style=plastic)](https://hub.docker.com/r/derekvasilich/docker-lamp/)
+[![Docker Build Status](https://img.shields.io/docker/build/derekvasilich/lamp.svg?style=plastic)](https://hub.docker.com/r/derekvasilich/docker-lamp/builds/)
+[![](https://images.microbadger.com/badges/image/derekvasilich/lamp.svg)](https://microbadger.com/images/derekvasilich/docker-lamp "derekvasilich/docker-lamp")
 
 This Docker container implements a last generation LAMP stack with a set of popular PHP modules. Includes support for [Composer](https://getcomposer.org/), [Bower](http://bower.io/) and [npm](https://www.npmjs.com/) package managers and a Postfix service to allow sending emails through PHP [mail()](http://php.net/manual/en/function.mail.php) function.
-
-If you dont need support for MySQL/MariaDB, or your app runs on PHP 5.4, maybe [fauria/lap](https://hub.docker.com/r/fauria/lap) suits your needs better.
 
 Includes the following components:
 
@@ -17,6 +15,7 @@ Includes the following components:
  * Apache HTTP Server 2.4
  * MariaDB 10.0
  * Postfix 2.11
+ * ZMQ
  * PHP 7
  * PHP modules
  	* php-bz2
@@ -50,6 +49,7 @@ Includes the following components:
 	* php-tidy
 	* php-xmlrpc
 	* php-xsl
+	* php-zmq
  * Development tools
 	* git
 	* composer
@@ -61,13 +61,13 @@ Includes the following components:
 	* ftp
 	* curl
 
-Installation from [Docker registry hub](https://registry.hub.docker.com/r/fauria/lamp/).
+Installation from [Docker registry hub](https://registry.hub.docker.com/r/derekvasilich/lamp/).
 ----
 
 You can download the image using the following command:
 
 ```bash
-docker pull fauria/lamp
+docker pull derekvasilich/lamp
 ```
 
 Environment variables
@@ -139,19 +139,19 @@ Use cases
 #### Create a temporary container for testing purposes:
 
 ```
-	docker run -i -t --rm fauria/lamp bash
+	docker run -i -t --rm derekvasilich/lamp bash
 ```
 
 #### Create a temporary container to debug a web app:
 
 ```
-	docker run --rm -p 8080:80 -e LOG_STDOUT=true -e LOG_STDERR=true -e LOG_LEVEL=debug -v /my/data/directory:/var/www/html fauria/lamp
+	docker run --rm -p 8080:80 -e LOG_STDOUT=true -e LOG_STDERR=true -e LOG_LEVEL=debug -v /my/data/directory:/var/www/html derekvasilich/lamp
 ```
 
 #### Create a container linking to another [MySQL container](https://registry.hub.docker.com/_/mysql/):
 
 ```
-	docker run -d --link my-mysql-container:mysql -p 8080:80 -v /my/data/directory:/var/www/html -v /my/logs/directory:/var/log/httpd --name my-lamp-container fauria/lamp
+	docker run -d --link my-mysql-container:mysql -p 8080:80 -v /my/data/directory:/var/www/html -v /my/logs/directory:/var/log/httpd --name my-lamp-container derekvasilich/lamp
 ```
 
 #### Get inside a running container and open a MariaDB console:
