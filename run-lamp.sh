@@ -32,12 +32,12 @@ fi
 if [ ! $LOG_STDOUT ]; then
 cat << EOB
     
-    **********************************************
-    *                                            *
-    *    Docker image: fauria/lamp               *
-    *    https://github.com/fauria/docker-lamp   *
-    *                                            *
-    **********************************************
+    *****************************************************
+    *                                                   *
+    *    Docker image: derekvasilich/lamp               *
+    *    https://github.com/derekvasilich/docker-lamp   *
+    *                                                   *
+    *****************************************************
 
     SERVER SETTINGS
     ---------------
