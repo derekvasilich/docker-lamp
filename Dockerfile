@@ -68,6 +68,9 @@ COPY build_zmq.sh /tmp/
 RUN chmod +x /tmp/build_zmq.sh
 RUN /tmp/build_zmq.sh
 
+COPY zmq.ini /etc/php/7.0/mods-available
+RUN phpenmod zmq
+
 RUN a2enmod rewrite
 RUN ln -s /usr/bin/nodejs /usr/bin/node
 RUN chmod +x /usr/sbin/run-lamp.sh
