@@ -1,5 +1,5 @@
-derekvasilich/lamp
-==================
+derekvasilich/docker-lamp
+======================
 
 ![docker_logo](https://raw.githubusercontent.com/derekvasilich/docker-lamp/master/docker_139x115.png)
 
@@ -61,13 +61,13 @@ Includes the following components:
 	* ftp
 	* curl
 
-Installation from [Docker registry hub](https://registry.hub.docker.com/r/derekvasilich/lamp/).
+Installation from [Docker registry hub](https://registry.hub.docker.com/r/derekvasilich/docker-lamp/).
 ----
 
 You can download the image using the following command:
 
 ```bash
-docker pull derekvasilich/lamp
+docker pull derekvasilich/docker-lamp
 ```
 
 Environment variables
@@ -131,7 +131,7 @@ Please, refer to https://docs.docker.com/storage/volumes for more information on
 
 The user and group owner id for the DocumentRoot directory `/var/www/html` are both 33 (`uid=33(www-data) gid=33(www-data) groups=33(www-data)`).
 
-The user and group owner id for the MariaDB directory `/var/log/mysql` are 105 and 108 repectively (`uid=105(mysql) gid=108(mysql) groups=108(mysql)`).
+The user and group owner id for the MariaDB directory `/var/log/mysql` are 105 and 108 respectively (`uid=105(mysql) gid=108(mysql) groups=108(mysql)`).
 
 Use cases
 ----
@@ -139,19 +139,19 @@ Use cases
 #### Create a temporary container for testing purposes:
 
 ```
-	docker run -i -t --rm derekvasilich/lamp bash
+	docker run -i -t --rm derekvasilich/docker-lamp bash
 ```
 
 #### Create a temporary container to debug a web app:
 
 ```
-	docker run --rm -p 8080:80 -e LOG_STDOUT=true -e LOG_STDERR=true -e LOG_LEVEL=debug -v /my/data/directory:/var/www/html derekvasilich/lamp
+	docker run --rm -p 8080:80 -e LOG_STDOUT=true -e LOG_STDERR=true -e LOG_LEVEL=debug -v /my/data/directory:/var/www/html derekvasilich/docker-lamp
 ```
 
 #### Create a container linking to another [MySQL container](https://registry.hub.docker.com/_/mysql/):
 
 ```
-	docker run -d --link my-mysql-container:mysql -p 8080:80 -v /my/data/directory:/var/www/html -v /my/logs/directory:/var/log/httpd --name my-lamp-container derekvasilich/lamp
+	docker run -d --link my-mysql-container:mysql -p 8080:80 -v /my/data/directory:/var/www/html -v /my/logs/directory:/var/log/httpd --name my-lamp-container derekvasilich/docker-lamp
 ```
 
 #### Get inside a running container and open a MariaDB console:
@@ -160,3 +160,4 @@ Use cases
 	docker exec -i -t my-lamp-container bash
 	mysql -u root
 ```
+
