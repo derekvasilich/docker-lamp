@@ -18,7 +18,7 @@ else
 fi
 
 if [ $ALLOW_OVERRIDE == 'All' ]; then
-    /bin/sed -i 's/AllowOverride\ None/AllowOverride\ All/g' /etc/apache2/apache2.conf
+    /bin/sed -i "s/AllowOverride\ None/AllowOverride\ All/g" /etc/apache2/apache2.conf
 fi
 
 if [ $LOG_LEVEL != 'warn' ]; then
