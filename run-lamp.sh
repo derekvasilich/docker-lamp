@@ -26,7 +26,7 @@ if [ $LOG_LEVEL != 'warn' ]; then
 fi
 
 # enable php short tags:
-/bin/sed -i "s/short_open_tag\ \=\ Off/short_open_tag\ \=\ On/g" /etc/php/7/apache2/php.ini
+/bin/sed -i "s/short_open_tag\ \=\ Off/short_open_tag\ \=\ On/g" /etc/php/7.4/apache2/php.ini
 
 # stdout server info:
 if [ ! $LOG_STDOUT ]; then
@@ -46,6 +46,7 @@ cat << EOB
     · Log Level [LOG_LEVEL]: $LOG_LEVEL
     · Allow override [ALLOW_OVERRIDE]: $ALLOW_OVERRIDE
     · PHP date timezone [DATE_TIMEZONE]: $DATE_TIMEZONE
+	Test
 
 EOB
 else
@@ -53,7 +54,7 @@ else
 fi
 
 # Set PHP timezone
-/bin/sed -i "s/\;date\.timezone\ \=/date\.timezone\ \=\ ${DATE_TIMEZONE}/" /etc/php/7.1/apache2/php.ini
+/bin/sed -i "s/\;date\.timezone\ \=/date\.timezone\ \=\ ${DATE_TIMEZONE}/" /etc/php/7.4/apache2/php.ini
 
 # Run Postfix
 /usr/sbin/postfix start
