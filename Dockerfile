@@ -45,7 +45,6 @@ RUN apt-get install -y \
 	php7.4-phpdbg \
 	php7.4-pspell \
 	php7.4-readline \
-	php7.4-recode \
 	php7.4-sqlite3 \
 	php7.4-sybase \
 	php7.4-tidy \
