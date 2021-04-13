@@ -20,43 +20,43 @@ RUN apt-get install -y zip unzip
 RUN apt-get install -y tnef
 RUN apt-get install -y libtool pkg-config build-essential autoconf automake uuid-dev
 RUN apt-get install -y \
-	php7.1 \
-	php7.1-bz2 \
-	php7.1-cgi \
-	php7.1-cli \
-	php7.1-common \
-	php7.1-curl \
-	php7.1-dev \
-	php7.1-enchant \
-	php7.1-fpm \
-	php7.1-gd \
-	php7.1-gmp \
-	php7.1-imap \
-	php7.1-interbase \
-	php7.1-intl \
-	php7.1-json \
-	php7.1-ldap \
-	php7.1-mbstring \
-	php7.1-mcrypt \
-	php7.1-mysql \
-	php7.1-odbc \
-	php7.1-opcache \
-	php7.1-pgsql \
-	php7.1-phpdbg \
-	php7.1-pspell \
-	php7.1-readline \
-	php7.1-recode \
-	php7.1-sqlite3 \
-	php7.1-sybase \
-	php7.1-tidy \
-	php7.1-xmlrpc \
-	php7.1-xsl \
-	php7.1-pcov \
-	php7.1-zip
-RUN apt-get install apache2 libapache2-mod-php7.1 -y
+	php7.4 \
+	php7.4-bz2 \
+	php7.4-cgi \
+	php7.4-cli \
+	php7.4-common \
+	php7.4-curl \
+	php7.4-dev \
+	php7.4-enchant \
+	php7.4-fpm \
+	php7.4-gd \
+	php7.4-gmp \
+	php7.4-imap \
+	php7.4-interbase \
+	php7.4-intl \
+	php7.4-json \
+	php7.4-ldap \
+	php7.4-mbstring \
+	php7.4-mcrypt \
+	php7.4-mysql \
+	php7.4-odbc \
+	php7.4-opcache \
+	php7.4-pgsql \
+	php7.4-phpdbg \
+	php7.4-pspell \
+	php7.4-readline \
+	php7.4-recode \
+	php7.4-sqlite3 \
+	php7.4-sybase \
+	php7.4-tidy \
+	php7.4-xmlrpc \
+	php7.4-xsl \
+	php7.4-pcov \
+	php7.4-zip
+RUN apt-get install apache2 libapache2-mod-php7.4 -y
 RUN apt-get install mariadb-common mariadb-server mariadb-client -y
 RUN apt-get install postfix -y
-RUN apt-get install git nodejs npm composer nano tree vim curl ftp -y
+RUN apt-get install git nodejs npm composer tree vim-tiny curl ftp -y
 RUN npm install -g bower grunt-cli gulp
 
 ENV LOG_STDOUT **Boolean**
@@ -69,12 +69,12 @@ ENV TERM dumb
 COPY index.php /var/www/html/
 COPY run-lamp.sh /usr/sbin/
 
-COPY build_zmq.sh /tmp/
-RUN chmod +x /tmp/build_zmq.sh
-RUN /tmp/build_zmq.sh
+# COPY build_zmq.sh /tmp/
+# RUN chmod +x /tmp/build_zmq.sh
+# RUN /tmp/build_zmq.sh
 
-COPY zmq.ini /etc/php/7.1/mods-available
-RUN phpenmod zmq
+# COPY zmq.ini /etc/php/7.1/mods-available
+# RUN phpenmod zmq
 
 RUN a2enmod rewrite
 RUN ln -s /usr/bin/nodejs /usr/bin/node
