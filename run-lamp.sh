@@ -52,6 +52,8 @@ else
     /bin/ln -sf /dev/stdout /var/log/apache2/access.log
 fi
 
+export TERM=xterm
+
 # Set PHP timezone
 /bin/sed -i "s/\;date\.timezone\ \=/date\.timezone\ \=\ ${DATE_TIMEZONE}/" /etc/php/7.4/apache2/php.ini
 
