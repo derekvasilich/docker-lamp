@@ -39,6 +39,7 @@ RUN apt-get install -y \
 	php7.4-mbstring \
 	php7.4-mcrypt \
 	php7.4-mysql \
+	php7.4-bcmath \
 	php7.4-odbc \
 	php7.4-opcache \
 	php7.4-pgsql \
@@ -55,7 +56,7 @@ RUN apt-get install -y \
 RUN apt-get install apache2 libapache2-mod-php7.4 -y
 RUN apt-get install mariadb-common mariadb-server mariadb-client -y
 RUN apt-get install postfix -y
-RUN apt-get install git nodejs npm composer tree vim-tiny curl ftp -y
+RUN apt-get install vim git nodejs npm composer tree vim-tiny curl ftp -y
 RUN npm install -g bower grunt-cli gulp
 
 ENV LOG_STDOUT **Boolean**

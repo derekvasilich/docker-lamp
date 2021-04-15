@@ -46,7 +46,6 @@ cat << EOB
     · Log Level [LOG_LEVEL]: $LOG_LEVEL
     · Allow override [ALLOW_OVERRIDE]: $ALLOW_OVERRIDE
     · PHP date timezone [DATE_TIMEZONE]: $DATE_TIMEZONE
-	Test
 
 EOB
 else
