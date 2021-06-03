@@ -58,7 +58,13 @@ export TERM=xterm
 /bin/sed -i "s/\;date\.timezone\ \=/date\.timezone\ \=\ ${DATE_TIMEZONE}/" /etc/php/7.4/apache2/php.ini
 
 # Run Postfix
-/usr/sbin/postfix start
+#/usr/sbin/postfix start
+
+# Run Redis
+/usr/bin/redis-server&
+
+# Enable mysql access from host to container
+/bin/sed -i -E "s/bind\-address\s+\=\s+127.0.0.1/bind-address\ \=\ 0.0.0.0/g" /etc/mysql/mariadb.conf.d/50-server.cnf
 
 # Run MariaDB
 /usr/bin/mysqld_safe --timezone=${DATE_TIMEZONE}&
